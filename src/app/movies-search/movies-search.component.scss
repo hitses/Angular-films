@@ -1,0 +1,16 @@
+:host {
+  background-color: grey;
+  color: white;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+}
+
+input {
+  all: unset;
+  font-size: 2em;
+  text-align: center;
+  padding: .4em;
+}

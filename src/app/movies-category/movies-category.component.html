@@ -1,12 +1,10 @@
 <div class="movies-category">
-  <div class="movie-item" *ngFor='let movie of movies'>
-    <div class="movie-img"
-      [ngStyle]="{'background-image': 'url(http://image.tmdb.org/t/p/w500' + movie.backdrop_path +')'}">
-      <h2>{{movie.title}}</h2>
-    </div>
+  <div
+    infiniteScroll
+    [infiniteScrollDistance]="1"
+    [infiniteScrollThrottle]="200"
+    (scrolled)="nextPage()">
+    <app-movies-display [data]="movies">
+    </app-movies-display>
   </div>
-  <app-movies-display></app-movies-display>
 </div>
-<!-- <pre>
-  {{movies | json}}
-</pre> -->

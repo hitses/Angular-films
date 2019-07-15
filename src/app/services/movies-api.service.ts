@@ -11,13 +11,17 @@ export class MoviesApiService {
 
   constructor(private http: HttpClient) { }
 
-  getCategory(cat: string) {
+  getCategory(cat: string, page: number = 1) {
     const validCategories = ['top_rated', 'upcoming', 'popular'];
 
     if (validCategories.includes(cat)) {
-      return this.http.get(`${this.baseUrlApi}/movie/${cat}?api_key=${this.apiKey}${this.languaje}`).toPromise();
+      return this.http.get(`${this.baseUrlApi}/movie/${cat}?api_key=${this.apiKey}&page=${page}${this.languaje}`).toPromise();
     } else {
       return Promise.reject('No valid category');
     }
+  }
+
+  searchMovies(query: string) {
+    return this.http.get(`${this.baseUrlApi}/movie/?api_key=${this.apiKey}&query=${query}${this.languaje}`);
   }
 }

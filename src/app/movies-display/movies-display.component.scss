@@ -1,0 +1,38 @@
+.movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 1em;
+  padding: 1em;
+
+  .movie-img {
+    height: 300px;
+    position: relative;
+    text-decoration: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &::before {
+      content: '';
+      height: 300px;
+      background: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: all 300ms linear;
+    }
+
+    &:hover::before {
+      background: rgba(0, 0, 0, 0.3);
+    }
+    
+    h2 {
+      position: absolute;
+      color: white;
+      padding: 1em;
+      z-index: 1;
+    }
+  }
+}
