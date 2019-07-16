@@ -16,6 +16,7 @@ import { MoviesGenreComponent } from './movies-genre/movies-genre.component';
 
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { NgxStarsModule } from 'ngx-stars';
+import { AutofocusDirective } from './autofocus.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NgxStarsModule } from 'ngx-stars';
     MoviesDisplayComponent,
     MoviesIdComponent,
     MoviesSearchComponent,
-    MoviesGenreComponent
+    MoviesGenreComponent,
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,
