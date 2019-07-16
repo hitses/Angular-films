@@ -19,7 +19,7 @@ export class MoviesIdService {
     }
   }
 
-  similarMovies(id) {
-    return this.http.get(`${this.baseUrlApi}/movie/${id}/similar?api_key=${this.apiKey}${this.languaje}`);
+  similarMovies(id, page: number = 1) {
+    return this.http.get(`${this.baseUrlApi}/movie/${id}/similar?api_key=${this.apiKey}&page=${page}${this.languaje}`);
   }
 }

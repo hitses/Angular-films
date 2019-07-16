@@ -22,6 +22,6 @@ export class MoviesApiService {
   }
 
   searchMovies(query: string) {
-    return this.http.get(`${this.baseUrlApi}/movie/?api_key=${this.apiKey}&query=${query}${this.languaje}`);
+    return this.http.get(`${this.baseUrlApi}/search/movie?api_key=${this.apiKey}&query=${query}${this.languaje}`);
   }
 }

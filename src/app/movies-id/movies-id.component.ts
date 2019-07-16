@@ -9,7 +9,8 @@ import { MoviesIdService } from '../services/movies-id.service';
 })
 export class MoviesIdComponent implements OnInit {
   movieData: object;
-  similarMovies: object[] = [];
+  loading = true;
+  relatedMovies: object[] = [];
   apiKey = 'a94db6e1acf929e6c3d28e88dc1bb386';
   page = 1;
 
@@ -17,11 +18,12 @@ export class MoviesIdComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
+      this.loading = true;
       window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
       this.api.getId(params.id).then(
         (data: any) => {
-          /* console.log(data.results); */
-          this.movieData = data.results;
+          this.loading = false;
+          this.movieData = data;
         }
       ).catch(error => {
         if (error === 'No valid ID') {
@@ -31,9 +33,9 @@ export class MoviesIdComponent implements OnInit {
         }
       });
       this.api.similarMovies(params.id).subscribe((res: any) => {
-        this.similarMovies = res.result;
+        console.log(res);
+        this.relatedMovies = res.results;
       });
     });
   }
-
 }
