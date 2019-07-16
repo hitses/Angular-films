@@ -3,6 +3,9 @@ nav {
   background-color: #222;
   display: flex;
   justify-content: center;
+  .rated{
+    text-align: center;
+  }
   a{
     color: white;
     text-decoration: none;
@@ -12,5 +15,11 @@ nav {
   .active{
     color: blueviolet;
     cursor: default;
+  }
+}
+
+@media (max-width: 425px) {
+  nav{
+    font-size: 0.6em;
   }
 }

@@ -1,5 +1,5 @@
 :host {
-  background-color: grey;
+  background-color: #444;
   color: white;
   padding: 1em;
   display: flex;
@@ -13,4 +13,5 @@ input {
   font-size: 2em;
   text-align: center;
   padding: .4em;
+  border-bottom: 3px solid grey;
 }

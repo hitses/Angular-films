@@ -1,18 +1,17 @@
 <h2 *ngIf="!movieData && !loading">Cargando...</h2>
 <div class="movieId" *ngIf="movieData" [style.background.image]="'url(https://image.tmdb.org/t/p/original' + movieData.backdrop_path + ')'">
-  <div>
-    <div class="genres">
-      <span *ngFor="let genre of movieData.genres">
-        <a routerLink="/genre/{{genre.id}}"> {{genre.name}} </a>
-      </span>
-    </div>
-    <h1>{{movieData.title}}</h1>
+  <div class="info">
+    <h1>{{movieData.title}} / {{movieData.release_date}}</h1>
+      <div class="genres">
+        <span *ngFor="let genre of movieData.genres">
+          <a routerLink="/genre/{{genre.id}}" target="_blank"> {{genre.name}} </a>
+        </span>
+      </div>
     <ngx-stars *ngIf="!loading" [readonly]="true" [initialStars]="movieData.vote_average/2" [color]="'blueviolet'"></ngx-stars>
-    <h3>{{release_date}}</h3>
     <h3 *ngIf="movieData.homepage">Página web oficial: <a href="{{movieData.homepage}}" target="_blank">{{movieData.title}}</a></h3>
     <p>{{movieData.overview}}</p>
   </div>
-  <div>
+  <div class="image">
     <img src="https://image.tmdb.org/t/p/w500/{{movieData.poster_path}}" alt="Cartel de {{movieData.title}}">
   </div>
 </div>
